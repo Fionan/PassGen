@@ -5,6 +5,8 @@
  */
 package passgen;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Fionán
@@ -16,6 +18,7 @@ public class PassGenAtron extends javax.swing.JFrame {
      */
     public PassGenAtron() {
         initComponents();
+        this.setTitle(Program_Detail.PROGRAM_SHORT_NAME);
     }
 
     /**
@@ -35,6 +38,9 @@ public class PassGenAtron extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         passwordDisplay = new javax.swing.JTextPane();
         jLabel1 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,6 +65,19 @@ public class PassGenAtron extends javax.swing.JFrame {
         jScrollPane1.setViewportView(passwordDisplay);
 
         jLabel1.setText("How many Characters?");
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("About");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,7 +120,7 @@ public class PassGenAtron extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -139,6 +158,20 @@ public class PassGenAtron extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+         if (JOptionPane.showConfirmDialog(null, 
+                Program_Detail.PROGRAM_NAME
+                + "\nv " + Program_Detail.VERSION + "\n"
+                + Program_Detail.AUTHOR +" "+ Program_Detail.YEAR, "About",
+                JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE)
+                == JOptionPane.OK_CANCEL_OPTION) {
+            //left open for future devlopment if needed
+    }    
+        
+        
+        
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -181,6 +214,9 @@ public class PassGenAtron extends javax.swing.JFrame {
     private javax.swing.JCheckBox isNumReq;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane passwordDisplay;
     private javax.swing.JTextField passwordLength;
